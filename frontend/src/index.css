@@ -1,0 +1,16 @@
+main {
+	min-height: 80vh;
+}
+
+.h3-product-price {
+	padding: 1rem 0;
+}
+
+.rating span {
+	margin: 0.1rem;
+}
+
+.rating .span-rating-text {
+	font-size: 0.9rem;
+	padding: 0 0 0 0.3rem;
+}

@@ -1,0 +1,5 @@
+// Create a react app named frontend without installing create-react-app locally (npx)
+npx create-react-app frontend
+
+// Start development server
+npm start
