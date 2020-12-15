@@ -5,7 +5,6 @@ import { Row, Col, Image, ListGroup, Button, Form, Card } from 'react-bootstrap'
 
 import { addToCart, removeFromCart } from '../actions/cartActions'
 import Message from '../components/Message'
-import Loader from '../components/Loader'
 
 const CartScreen = ({ match, location, history }) => {
 	const productId = match.params.id
@@ -46,7 +45,7 @@ const CartScreen = ({ match, location, history }) => {
 						{cartItems.map((item) => (
 							<ListGroup.Item key={item.product}>
 								<Row>
-									<Col md={2}>
+									<Col className="my-2 my-md-0" md={2}>
 										<Image
 											src={item.image}
 											alt={item.name}
@@ -54,13 +53,15 @@ const CartScreen = ({ match, location, history }) => {
 											rounded
 										></Image>
 									</Col>
-									<Col md={3}>
+									<Col className="my-2 my-md-0" md={3}>
 										<Link to={`/product/${item.product}`}>
 											{item.name}
 										</Link>
 									</Col>
-									<Col md={2}>${item.price}</Col>
-									<Col md={2}>
+									<Col className="my-2 my-md-0" md={2}>
+										${item.price}
+									</Col>
+									<Col className="my-2 my-md-0" md={2}>
 										<Form.Control
 											as="select"
 											value={item.qty}
@@ -87,7 +88,7 @@ const CartScreen = ({ match, location, history }) => {
 											))}
 										</Form.Control>
 									</Col>
-									<Col md={2}>
+									<Col className="my-2 my-md-0" md={2}>
 										<Button
 											type="button"
 											variant="light"
@@ -107,7 +108,7 @@ const CartScreen = ({ match, location, history }) => {
 				)}
 			</Col>
 			<Col sm={12} md={4}>
-				<Card>
+				<Card className="mx-3 mx-md-0">
 					<ListGroup variant="flush">
 						<ListGroup.Item>
 							<h2>
