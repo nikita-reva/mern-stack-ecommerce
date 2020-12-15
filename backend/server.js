@@ -6,6 +6,7 @@ import colors from 'colors'
 // Internal imports
 import connectDB from './config/db.js'
 import productRoutes from './routes/productRoutes.js'
+import userRoutes from './routes/userRoutes.js'
 import { notFound, errorHandler } from './middleware/errorMiddleware.js'
 
 //////////////////////////////////////////////////
@@ -14,31 +15,27 @@ import { notFound, errorHandler } from './middleware/errorMiddleware.js'
 dotenv.config()
 
 //////////////////////////////////////////////////
-
-//////////////////////////////////////////////////
 // Connect to database
 
 connectDB()
-
-//////////////////////////////////////////////////
 
 //////////////////////////////////////////////////
 // Initialize server
 
 const app = express()
 
+// Middleware for using json in a request body
+app.use(express.json())
+
 app.get('/', (req, res) => {
 	res.send('API is running....')
 })
 
 //////////////////////////////////////////////////
-
-//////////////////////////////////////////////////
 // Incorporate product routes
 
 app.use('/api/products', productRoutes)
-
-//////////////////////////////////////////////////
+app.use('/api/users', userRoutes)
 
 //////////////////////////////////////////////////
 // Custom error handling via middleware
@@ -46,8 +43,6 @@ app.use('/api/products', productRoutes)
 app.use(notFound)
 
 app.use(errorHandler)
-
-//////////////////////////////////////////////////
 
 //////////////////////////////////////////////////
 // Start listening at port 5000
@@ -60,5 +55,3 @@ app.listen(
 			.bold
 	)
 )
-
-//////////////////////////////////////////////////
