@@ -24,3 +24,8 @@ h2 {
 	font-size: 0.9rem;
 	padding: 0 0 0 0.3rem;
 }
+
+.userlist-btn {
+	min-width: 35px;
+	margin: 0 5px;
+}
