@@ -28,7 +28,6 @@ const App = () => {
 					<Route path="/register" component={RegisterScreen} />
 					<Route path="/login" component={LoginScreen} />
 					<Route path="/profile" component={ProfileScreen} />
-					{/* <Route path="/register" component={RegisterScreen} /> */}
 					<Route path="/product/:id" component={ProductScreen} />
 					<Route path="/cart/:id?" component={CartScreen} />
 					<Route path="/" component={HomeScreen} exact />
