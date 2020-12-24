@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { createOrder } from '../actions/orderActions'
 import Message from '../components/Message'
 import CheckoutSteps from '../components/CheckoutSteps'
+import { ORDER_CREATE_RESET } from '../constants/orderConstants'
 
 const PlaceOrderScreen = ({ history }) => {
 	const dispatch = useDispatch()
@@ -30,9 +31,10 @@ const PlaceOrderScreen = ({ history }) => {
 
 	useEffect(() => {
 		if (success) {
+			dispatch({ type: ORDER_CREATE_RESET })
 			history.push(`/order/${order._id}`)
 		}
-	}, [history, success, order])
+	}, [dispatch, history, success, order])
 
 	const placeOrderHandler = () => {
 		dispatch(
