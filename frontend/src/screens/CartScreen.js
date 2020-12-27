@@ -5,6 +5,7 @@ import { Row, Col, Image, ListGroup, Button, Form, Card } from 'react-bootstrap'
 
 import { addToCart, removeFromCart } from '../actions/cartActions'
 import Message from '../components/Message'
+import { CART_ITEMS_RESET } from '../constants/cartConstants'
 
 const CartScreen = ({ match, location, history }) => {
 	const productId = match.params.id
@@ -17,6 +18,9 @@ const CartScreen = ({ match, location, history }) => {
 	const { cartItems } = cart
 
 	useEffect(() => {
+		if (!localStorage.getItem('cartItems')) {
+			dispatch({ type: CART_ITEMS_RESET })
+		}
 		if (productId) {
 			dispatch(addToCart(productId, qty))
 		}
@@ -130,7 +134,7 @@ const CartScreen = ({ match, location, history }) => {
 							<Button
 								type="button"
 								className="btn-block"
-								disabled={cartItems.lenth === 0}
+								disabled={cartItems.length === 0}
 								onClick={checkoutHandler}
 							>
 								Proceed to Checkout

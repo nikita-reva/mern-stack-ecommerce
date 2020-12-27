@@ -7,7 +7,7 @@ const LoadingButton = styled.button`
 	display: block;
 	width: 100%;
 	border: none;
-	border-radius: 0.4rem;
+	border-radius: 0.25rem;
 	background: #bd961b;
 
 	font-family: 'Open Sans', sans-serif;

@@ -37,6 +37,7 @@ const PlaceOrderScreen = ({ history }) => {
 	}, [dispatch, history, success, order])
 
 	const placeOrderHandler = () => {
+		localStorage.removeItem('cartItems')
 		dispatch(
 			createOrder({
 				orderItems: cart.cartItems,
