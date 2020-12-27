@@ -3,6 +3,7 @@ import path from 'path'
 import express from 'express'
 import dotenv from 'dotenv'
 import colors from 'colors'
+import morgan from 'morgan'
 
 // Internal imports
 import connectDB from './config/db.js'
@@ -26,6 +27,11 @@ connectDB()
 // Initialize server
 
 const app = express()
+
+// Use morgan
+if (process.env.NODE_ENV === 'development') {
+	app.use(morgan('dev'))
+}
 
 // Middleware for using json in a request body
 app.use(express.json())
