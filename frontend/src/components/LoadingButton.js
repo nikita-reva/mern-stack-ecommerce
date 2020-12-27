@@ -1,4 +1,3 @@
-import { useSelector } from 'react-redux'
 import styled, { keyframes } from 'styled-components'
 
 const LoadingButton = styled.button`
@@ -51,10 +50,7 @@ const Spinner = styled.div`
 
 	animation: ${SpinnerAnimation} 1s ease infinite;
 `
-const SpinnerButton = ({ onClick }) => {
-	const orderDeliver = useSelector((state) => state.orderDeliver)
-	const { loading } = orderDeliver
-
+const SpinnerButton = ({ onClick, loading }) => {
 	return (
 		<LoadingButton onClick={onClick} disabled={loading}>
 			<span style={{ visibility: loading ? 'hidden' : 'visible' }}>

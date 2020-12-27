@@ -236,6 +236,7 @@ const OrderScreen = ({ match, history }) => {
 										<SpinnerButton
 											type="button"
 											onClick={deliverHandler}
+											loading={loadingDeliver}
 										></SpinnerButton>
 									</ListGroup.Item>
 								)}
