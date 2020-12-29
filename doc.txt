@@ -3,3 +3,21 @@ npx create-react-app frontend
 
 // Start development server
 npm start
+
+// Heroku login
+heroku login
+
+// Create a new Heroku app
+heroku create honey-express-app      
+
+// Create a new Heroku app
+heroku create honey-express-app  
+
+// Add a Heroku remote repository
+heroku git:remote -a honey-express-app
+
+// Heroku logs
+heroku logs --tail
+
+// Push to Heroku
+git push heroku master
