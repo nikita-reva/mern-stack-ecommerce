@@ -11,7 +11,7 @@ heroku login
 heroku create honey-express-app      
 
 // Create a new Heroku app
-heroku create honey-express-app  
+heroku create --region eu
 
 // Add a Heroku remote repository
 heroku git:remote -a honey-express-app
@@ -21,3 +21,6 @@ heroku logs --tail
 
 // Push to Heroku
 git push heroku master
+
+// Get app info
+heroku info
