@@ -167,7 +167,7 @@ const OrderScreen = ({ match, history }) => {
 												</Col>
 												<Col>
 													<Link
-														to={`/products/${item.product}`}
+														to={`/product/${item.product}`}
 													>
 														{item.name}
 													</Link>
