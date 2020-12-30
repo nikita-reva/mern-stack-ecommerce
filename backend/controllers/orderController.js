@@ -1,5 +1,11 @@
 import asyncHandler from 'express-async-handler'
 import Order from '../models/orderModel.js'
+import Product from '../models/productModel.js'
+
+// TEST
+const testStock = asyncHandler(async (req, res) => {
+	const order = await Order.findById(req.params.id)
+})
 
 // @desc    Create new order
 // @route   GET /api/orders
@@ -59,8 +65,14 @@ const getOrderById = asyncHandler(async (req, res) => {
 // @access  Private
 const updateOrderToPaid = asyncHandler(async (req, res) => {
 	const order = await Order.findById(req.params.id)
+	const products = order.orderItems
 
 	if (order) {
+		for (let i = 0; i < products.length; i++) {
+			const product = await Product.findById(products[i].product)
+			product.countInStock -= products[i].qty
+			await product.save()
+		}
 		order.isPaid = true
 		order.paidAt = Date.now()
 		order.paymentResult = {
@@ -123,4 +135,5 @@ export {
 	updateOrderToDelivered,
 	getMyOrders,
 	getOrders,
+	testStock,
 }
