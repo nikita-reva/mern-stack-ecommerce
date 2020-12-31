@@ -2,11 +2,6 @@ import asyncHandler from 'express-async-handler'
 import Order from '../models/orderModel.js'
 import Product from '../models/productModel.js'
 
-// TEST
-const testStock = asyncHandler(async (req, res) => {
-	const order = await Order.findById(req.params.id)
-})
-
 // @desc    Create new order
 // @route   GET /api/orders
 // @access  Private
@@ -135,5 +130,4 @@ export {
 	updateOrderToDelivered,
 	getMyOrders,
 	getOrders,
-	testStock,
 }
